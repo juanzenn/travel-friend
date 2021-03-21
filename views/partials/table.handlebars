@@ -1,0 +1,30 @@
+<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>Viaje</th>
+            <th>Ruta</th>
+            <th>Fecha</th>
+            <th>Puestos</th>
+            <th>Vehiculo</th>
+            <th>Conductor</th>
+            <th>Desde</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each travels}}
+        <tr>
+            <td>{{this.viajeId}}</td>
+            <td>{{this.nombreRuta}}</td>
+            <td>{{this.fecha}}</td>
+            <td>{{this.puestos}}</td>
+            <td>Tipo: {{this.vehiculo.tipo}}</td>
+            <td>{{this.conductor.nombre}}</td>
+            <td>{{this.precio}}</td>
+            <td>
+                <button>RESERVAR</button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
