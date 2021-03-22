@@ -9,6 +9,7 @@ app.engine('handlebars', exphbs({
   defaultLayout: 'main',
 }));
 app.set('view engine', 'handlebars');
+app.use(express.static('public'))
 
 // Render the homepage
 app.get('/', (req, res) => {
