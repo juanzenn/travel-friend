@@ -1,32 +1,41 @@
 <section class="section is-medium">
+    <div class="container block">
+        <h2 class="title is-2">Viajes disponibles</h2>
+        <p class="subtitle content is-small">Todos los viajes disponibles al momento. Si quieres buscar algo en
+            especifico, recomendamos usar el buscador.</p>
+    </div>
+
+
     <table id="table_id" class="table is-striped is-hoverable">
         <thead>
             <tr>
-                <th>Viaje</th>
+                <th class=" is-hidden-touch">Viaje</th>
                 <th>Ruta</th>
                 <th>Fecha</th>
-                <th>Puestos</th>
-                <th>Vehiculo</th>
-                <th>Conductor</th>
-                <th>Desde</th>
+                <th class=" is-hidden-touch">Puestos</th>
+                <th class=" is-hidden-touch">Vehiculo</th>
+                <th class=" is-hidden-touch">Conductor</th>
+                <th class=" is-hidden-touch">Desde</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             {{#each travels}}
             <tr>
-                <td>{{this.viajeId}}</td>
-                <td>{{this.nombreRuta}}</td>
-                <td>{{this.fecha}}</td>
-                <td>{{this.puestos}}</td>
-                <td>Tipo: {{this.vehiculo.tipo}}</td>
-                <td>{{this.conductor.nombre}}</td>
-                <td>{{this.precio}}</td>
-                <td>
-                    <button>RESERVAR</button>
+                <td class="content is-vcentered is-hidden-touch">{{this.viajeId}}</td>
+                <td class="content is-vcentered">{{this.nombreRuta}}</td>
+                <td class="content is-vcentered">{{this.fecha}}</td>
+                <td class="content is-vcentered is-hidden-touch">{{this.puestos}}</td>
+                <td class="content is-vcentered is-hidden-touch">Tipo: {{this.vehiculo.tipo}}</td>
+                <td class="content is-vcentered is-hidden-touch">{{this.conductor.nombre}}</td>
+                <td class="content is-vcentered is-hidden-touch">{{this.precio}}</td>
+                <td class="content is-vcentered">
+                    <button class="button is-vcentered is-link is-outlined">RESERVAR</button>
                 </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
+
+
 </section>

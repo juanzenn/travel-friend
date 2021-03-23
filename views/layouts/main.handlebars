@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
 	<link rel="stylesheet" href="bulma.css">
-	<title>Document</title>
+	<title>Travel Friend</title>
 </head>
 
 <body>
@@ -16,13 +16,26 @@
 	{{{body}}}
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-	<script type="text/javascript" charset="utf8"
-		src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf8" src="fancyTable.min.js"></script>
+
 	<script>
 		// Javascript for the page
 		$(document).ready(function () {
-			$('#table_id').DataTable();
+			$('#table_id').fancyTable({
+				sortColumn: 0, // column number for initial sorting
+				sortOrder: 'descending', // 'desc', 'descending', 'asc', 'ascending', -1 (descending) and 1 (ascending)
+				sortable: true,
+				pagination: true, // default: false
+				paginationClass:"button",
+				paginationClassActive:"button is-info",
+				searchable: false,
+			//	globalSearch: true,
+			//	inputClass:"padding:5px;",
+			//	inputPlaceholder:"Caracas..."
+			});		
 		});
+
+
 		// Navmenu
 		document.addEventListener('DOMContentLoaded', () => {
 

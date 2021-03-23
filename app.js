@@ -27,6 +27,18 @@ app.get('/', (req, res) => {
       console.log("Error getting documents: ", error);
     })
 })
+// Routes for our app :)
+app.get('/contacto', (req, res) => {
+  res.render('contact')
+})
+
+app.get('/nosotros', (req, res) => {
+  res.render('us')
+})
+
+app.get('/preguntas_frecuentes', (req, res) => {
+  res.render('questions')
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
