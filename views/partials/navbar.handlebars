@@ -30,12 +30,18 @@
       </a>
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
+          {{#if user}}
+          <a class="button is-primary" href="/signup">
+            <strong>Cerrar sesión</strong>
           </a>
-          <a class="button is-light">
+          {{else}}
+          <a class="button is-primary" href="/signup">
+            <strong>Registro</strong>
+          </a>
+          <a class="button is-light" href="/login">
             Log in
           </a>
+          {{/if}}
         </div>
       </div>
     </div>

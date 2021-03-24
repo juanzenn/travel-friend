@@ -1,15 +1,29 @@
-// The server xd
-const express = require('express')
+// The server 
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const express = require('express');
 const exphbs = require('express-handlebars');
 const {  db } = require('./firebaseInit');
-const app = express()
-const port = 3000
+const admin = require('firebase-admin')
+const serviceAccount = require('./serviceAccountKey.json');
+const { auth } = require('./firebaseInit');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+})
+
+
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.engine('handlebars', exphbs({
   defaultLayout: 'main',
 }));
 app.set('view engine', 'handlebars');
-app.use(express.static('public'))
+app.use(express.static('public'));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Render the homepage
 app.get('/', (req, res) => {
@@ -40,7 +54,42 @@ app.get('/preguntas_frecuentes', (req, res) => {
   res.render('questions')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.get('/signup', (req, res) => {
+  res.render('signup')
+})
+
+app.get('/login', (req, res) => {
+  res.render('login')
+})
+
+app.post('/signup', (req,res) => {
+  auth.createUserWithEmailAndPassword(req.body.email, req.body.password)  
+  .catch((error) => {
+    console.error(error)
+  })
+  res.redirect({user:true},'/')
+})
+
+app.post('/login', (req,res) => {
+  auth.signInWithEmailAndPassword(req.body.email, req.body.password)
+  .catch((error) => {
+    console.error(error)
+  });
+  res.redirect('/')
+})
+
+
+auth.onAuthStateChanged(user => {
+  if (user) {
+    // User is signed in.
+    console.log(`there is a user with the email of: ${auth.currentUser.email}`)
+  } else {
+    console.log('there is no user')
+  }
+});
+
+
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`)
 })
 

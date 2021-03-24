@@ -1,0 +1,56 @@
+<section class="hero">
+  <div class="hero-body">
+    <form action="/login" method="POST" class="container">
+      <div class="column box p-5 is-4 is-offset-4">
+
+        <div class="has-text-centered content">
+          <h1 class="title is-1">Login</h1>
+          <p class="subtitle">Accede a tu cuenta</p>
+        </div>
+
+        <div class="field has-text-centered has-addons ">
+          <p class="control">
+            <button class="button is-danger is-outlined">
+              <span class="material-icons">person_add</span>
+              <span class="ml-2">Acceder con Google</span>
+            </button>
+          </p>
+        </div>
+        <hr>
+
+        <div class="field">
+          <label for="email" class="label">Email</label>
+          <div class="control has-icons-left">
+            <span class="icon is-small is-left">
+              <span class="material-icons">email</span>
+            </span>
+            <input type="email" class="input" name="email" id="email" placeholder="ejemplo123@ejemplo.com">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password" class="label">Contraseña</label>
+          <div class="control has-icons-left">
+            <span class="icon is-small is-left">
+              <span class="material-icons">lock</span>
+            </span>
+            <input type="password" class="input" name="password" id="password" placeholder="********">
+          </div>
+        </div>
+
+        <div class="field has-text-right">
+          <p class="control">
+            <button class="button is-success is-outlined">Login</button>
+          </p>
+        </div>
+    </form>
+
+    <div class="content is-small">
+      <ul>
+        <li><a href="/signup">No tienes cuenta? Registrate</a></li>
+        <li><a href="/login">Recuperar contraseña</a></li>
+        <li><a href="/preguntas_frecuentes">Alguna duda?</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
